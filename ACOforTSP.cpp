@@ -53,7 +53,7 @@ int city :: here(int k)
   float sum_phermone=0;
   for(int i=0;i<num_of_cities;i++)
   {
-    if(obj[k].city_list[i]==false && )
+    if(obj[k].city_list[i]==false)
     {
       mp[len]=i;
       len++;
