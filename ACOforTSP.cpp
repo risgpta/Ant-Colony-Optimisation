@@ -73,7 +73,8 @@ int city :: here(int k)
     prefix_sum[0]=prob[0];
   for(int i=1;i<len;i++)
   prefix_sum[i]=prefix_sum[i-1]+prob[i];
-  float r= static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/prefix_sum[len-1]));
+  float r= float(rand()) / ( float(RAND_MAX) + 1.0);
+  r*=prefix_sum[len-1];
   int z=upper_bound(prefix_sum,prefix_sum,r)-prefix_sum;
   return mp[z];
 }
