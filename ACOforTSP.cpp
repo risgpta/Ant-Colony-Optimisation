@@ -99,9 +99,9 @@ void city :: go(int k)
   obj[k].v.push_back(where_it_should_go);
   phermone_level[obj[k].next_city][where_it_should_go]+=0.5;
   obj[k].next_city=where_it_should_go;
-  for(int l=0;l<num_of_cities;l++)
-  cout<<obj[k].city_list[l]<<" ";
-  cout<<"\n";
+  //for(int l=0;l<num_of_cities;l++)
+  //cout<<obj[k].city_list[l]<<" ";
+  //cout<<"\n";
   go(k);
 }
 inline void city :: place_them(int a,int b,int cc)
@@ -115,21 +115,21 @@ void city :: evaporate()
   for(int i=0;i<num_of_cities;i++)
   {
     for(int j=0;j<num_of_cities;j++)
-      phermone_level[i][j]-=0.3;
+      phermone_level[i][j]-=0.0;
   }
 }
 void city :: ant_initialise(int n)
 {
   for(int i=0;i<n;i++)
   obj[i].v.clear();
-  int z=n/num_of_cities;
-  int k=0;
-  /*for(int i=0;i<n;i+=z)
-  place_them(i,i+z-1,k++);
-  int zz=n%num_of_cities;
-  place_them(z*num_of_cities,z*num_of_cities+zz-1,0);*/
+  //int z=n/num_of_cities;
+  //int k=0;
+  //for(int i=0;i<n;i+=z)
+  //place_them(i,i+z-1,k++);
+  //int zz=n%num_of_cities;
+  //place_them(z*num_of_cities,z*num_of_cities+zz-1,0);
   for(int i=0;i<n;i++)
-  obj[i].start_city=0;
+  obj[i].start_city=rand()%num_of_cities;
 }
 void city :: start_aco(int n,int &zt)
 {
@@ -147,14 +147,14 @@ void city :: start_aco(int n,int &zt)
       sum+=distance[obj[i].start_city][obj[i].v[j]];
       else
       sum+=distance[obj[i].v[j-1]][obj[i].v[j]];
-      cout<<obj[i].v[j]<<" ";
+      //cout<<obj[i].v[j]<<" ";
       }
-      cout<<"\nCOST:\n";
-      cout<<sum;
+      //cout<<"\nCOST:\n";
+      //cout<<sum;
       zt=min(zt,sum);
-      cout<<"\n";
+      //cout<<"\n";
     }
-    cout<<"\n\n";
+    //cout<<"\n\n";
 }
 int main()
 {
@@ -184,14 +184,14 @@ int main()
   it=num_of_iterations;
   int zt=999999;
   c.initialise();
+  f<<ccc;
+  f<<" :\n";
   while(num_of_iterations--)
   {
   c.start_aco(num_of_ants,zt);
-  }
-  cout<<zt<<"\n";
-  f<<ccc;
-  f<<" ";
   f<<zt;
+  f<<" ";
+  }
   f<<"\n";
   }
 }

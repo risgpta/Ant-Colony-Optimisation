@@ -37,9 +37,9 @@ int main()
     int dp[n+1][(1<<12)];
     memset(dp,-1,sizeof(dp));
     int z=tsp(dp,1,0,a,n);
-    f<<c;
-    f<<" ";
+    //f<<c;
+    //f<<" ";
     f<<z;
-    f<<"\n";
+    f<<" ";
   }
 }
